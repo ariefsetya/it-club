@@ -1,0 +1,80 @@
+.login-form {
+    width: 25rem;
+    height: 18.75rem;
+    position: fixed;
+    top: 50%;
+    margin-top: -9.375rem;
+    left: 50%;
+    margin-left: -12.5rem;
+    background-color: #ffffff;
+    opacity: 0;
+    -webkit-transform: scale(.8);
+    transform: scale(.8);
+}
+.panel{
+    margin-bottom: 10px;
+}
+.panel .content{
+    background: white;
+}
+
+.container{
+  margin:0 auto !important;
+}
+.pagination {
+  display: block;
+  margin: .625rem 0;
+}
+.pagination:before,
+.pagination:after {
+  display: table;
+  content: "";
+}
+.pagination:after {
+  clear: both;
+}
+.pagination > li {
+  display: block;
+  float: left;
+  margin-left: .0652rem;
+  background-color: #ffffff;
+  cursor: pointer;
+  border: 1px #eeeeee solid;
+  text-align: center;
+  color: #1d1d1d;
+}
+.pagination > li a{
+  padding: 0.25rem .625rem;  display: block;
+  font-size: .875rem;
+  float: left;
+  margin-left: .0652rem;
+  background-color: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  color: #1d1d1d;
+}
+.pagination > li:first-child {
+  margin-left: 0 ;
+}
+.pagination > li.current,
+.pagination > li.active {
+  padding: 0.25rem .625rem;  display: block;
+  background-color: #1ba1e2;
+  border-color: #59cde2;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+.pagination > li:hover a,
+.pagination > li:hover {
+  background-color: #1ba1e2;
+  border-color: #1ba1e2;
+  color: #ffffff;
+}
+.pagination > li:disabled,
+.pagination > li.disabled {
+  padding: 0.25rem .625rem;  display: block;
+  cursor: default;
+  background-color: #eeeeee;
+  border-color: #eeeeee;
+  color: #999999;
+}
