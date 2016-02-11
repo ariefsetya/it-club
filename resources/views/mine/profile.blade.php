@@ -28,8 +28,8 @@
 	    </div>
 	    <div class="content">
 				<h2>{{ $profile->namadepan." ".$profile->namabelakang }}</h2>
-			@if($profile->jeniskelamin=='Male') He @else She @endif was born at {{ $profile->tempatlahir }}, {{ 2015-date_format(date_create($profile->tanggallahir),"Y") }} years ago and
-            join with IT Club since {{ date_format(date_create($profile->created_date),"d M Y") }}.
+			@if($profile->jeniskelamin=='Male') He @else She @endif was born at {{ $profile->tempatlahir }}, {{ date("Y")-date_format(date_create($profile->tanggallahir),"Y") }} years ago and
+            join with IT Club since {{ date_format(date_create($profile->created_at),"d M Y") }}.
             @if($profile->namapengguna) {{ $profile->namadepan }} also known as {{ $profile->namapengguna }}. @endif
             @if(sizeof(App\Posts::where(array('idpengguna'=>$profile->id,'deleted_at'=>NULL))->get()))
             @if($profile->jeniskelamin=='Male') He @else She @endif has created {{ sizeof(App\Posts::where(array('idpengguna'=>$profile->id,'deleted_at'=>NULL))->get()) }} tutorials.

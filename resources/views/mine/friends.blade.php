@@ -23,8 +23,8 @@ $slid = $slide[rand(0,3)];
         </div>
 
         <a href="{{ url('people/'.$data->id) }}" class="fg-white slide-over op-{{ $color[rand(0,3)] }} padding10">
-			@if($data->jeniskelamin=='Male') He @else She @endif was born at {{ $data->tempatlahir }}, {{ 2015-date_format(date_create($data->tanggallahir),"Y") }} years ago and
-            join with IT Club since {{ date_format(date_create($data->created_date),"d M Y") }}.
+			@if($data->jeniskelamin=='Male') He @else She @endif was born at {{ $data->tempatlahir }}, {{ date("Y")-date_format(date_create($data->tanggallahir),"Y") }} years ago and
+            join with IT Club since {{ date_format(date_create($data->created_at),"d M Y") }}.
             @if($data->namapengguna) {{ $data->namadepan }} also known as {{ $data->namapengguna }}. @endif
             @if(sizeof(App\Posts::where(array('idpengguna'=>$data->id,'deleted_at'=>NULL))->get()))
             @if($data->jeniskelamin=='Male') He @else She @endif has created {{ sizeof(App\Posts::where(array('idpengguna'=>$data->id,'deleted_at'=>NULL))->get()) }} tutorials.
