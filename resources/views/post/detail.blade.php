@@ -30,6 +30,7 @@
     <meta property="og:title" content="{{$data->judul}} | IT Club SMKN 10 Jakarta" />
     <meta property="og:description" content="{{substr(strip_tags($data->isi),0,500)}}" />
     <meta property="og:url" content="{{\App\Website::where(array('jenis'=>'site','kunci'=>'url'))->first()['isi'].$data->slug}}" />
+    <meta property="og:image" content="{{'http://it-club.smkn10jakarta.sch.id/images/foto/'.$author->foto}}" />
     <meta property="og:site_name" content="IT Club SMKN 10 Jakarta" />
     <meta property="article:author" content="https://www.facebook.com/{{$author->fb}}" />
     <meta property="og:author" content="https://www.facebook.com/{{$author->fb}}" />
