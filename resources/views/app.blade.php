@@ -23,7 +23,6 @@ $title = App\Website::where(array('jenis'=>'site','kunci'=>'title'))->first()['i
         <meta name="title" content="{{ $title }}">
         <meta name="keywords tag" content="{{ $title }}">
 
-        <title>{{ $title }}</title>
         <link href="{{ url('favicon.ico') }}" rel="shortcut icon">
         <link href="{{ url('favicon.ico') }}" rel="favicon">
 
@@ -36,6 +35,7 @@ $title = App\Website::where(array('jenis'=>'site','kunci'=>'title'))->first()['i
         <script src="{{ url('js/jquery-2.1.3.min.js') }}"></script>
 
 	@yield('header')
+        <title>{{ $title }}</title>
 
     </head>
     <body style="background:lightgray;">

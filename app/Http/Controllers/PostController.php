@@ -124,7 +124,8 @@ class PostController extends HomeController {
 		}
 
 
-		$arr = array('data'=>$post);
+		$arr = array('data'=>$post,
+					'author'=>$this->getpostAuthor($post->idpengguna));
 		if(Auth::check()){
 			$arr += array('update'=>$this->is_update(),
 				'nama'=>$this->getname(),
@@ -144,6 +145,10 @@ class PostController extends HomeController {
 	public function getpostbyID($id)
 	{
 		return Posts::where('id',$id)->first();
+	}
+	public function getpostAuthor($id)
+	{
+		return \App\User::where('id',$id)->first();
 	}
 	public function getpostbySlug($id)
 	{
