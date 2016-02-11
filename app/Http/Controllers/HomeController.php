@@ -219,15 +219,19 @@ class HomeController extends Controller {
 	}
 	public function komentar($next)
 	{
-		$komen = new Komentar;
-		$komen->idpengguna = Auth::user()->id;
-		$komen->idpost = $next;
-		$komen->isi = Input::get('isi');
-		$komen->save();
+		if(trim(Input::get('isi'))!=""){
+			$komen = new Komentar;
+			$komen->idpengguna = Auth::user()->id;
+			$komen->idpost = $next;
+			$komen->isi = Input::get('isi');
+			$komen->save();
 
-		$a = Posts::find($next);
+			$a = Posts::find($next);
 
-		return redirect(url($a->slug));
+			return redirect(url($a->slug));
+		}else{
+			return redirect(url($a->slug));
+		}
 
 	}
 	public function actpost($tgl)
