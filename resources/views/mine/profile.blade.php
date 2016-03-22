@@ -68,6 +68,13 @@
             </div>
         </div>
     </div>
+    <?php
+    $prof = \App\Posts::where('idpengguna',Auth::user()->id)->paginate(10);
+    ?>
+    @foreach($prof as $data)
+        @include('utils.datapost')
+    @endforeach
+    <span class="pull-right">{{$prof->render()}}</span>
 </div>
 </div>
 </div>
