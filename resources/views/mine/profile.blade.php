@@ -74,7 +74,7 @@
     @foreach($prof as $data)
         @include('utils.datapost')
     @endforeach
-    <span class="pull-right">{!!$prof->render()!!}</span>
+    <span class="place-right">{!!$prof->render()!!}</span>
 </div>
 </div>
 </div>
