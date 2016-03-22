@@ -69,12 +69,12 @@
         </div>
     </div>
     <?php
-    $prof = \App\Posts::where('idpengguna',Auth::user()->id)->paginate(10);
+    $prof = \App\Posts::where('idpengguna',Auth::user()->id)->orderBy('id','desc')->paginate(3);
     ?>
     @foreach($prof as $data)
         @include('utils.datapost')
     @endforeach
-    <span class="pull-right">{{$prof->render()}}</span>
+    <span class="pull-right">{!!$prof->render()!!}</span>
 </div>
 </div>
 </div>
