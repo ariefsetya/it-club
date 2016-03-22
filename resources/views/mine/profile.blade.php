@@ -69,7 +69,7 @@
         </div>
     </div>
     <?php
-    $prof = \App\Posts::where('idpengguna',Auth::user()->id)->orderBy('id','desc')->paginate(3);
+    $prof = \App\Posts::where('idpengguna',$profile->id)->orderBy('id','desc')->paginate(3);
     ?>
     @foreach($prof as $data)
         @include('utils.datapost')
