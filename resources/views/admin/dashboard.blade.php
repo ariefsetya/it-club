@@ -219,6 +219,11 @@
 					    <span class="title">Website</span>
 					    <span class="badge">10</span>
 					</a>
+				    <a href="{{ url('admin/popups') }}" class="shortcut-button bg-cyan bg-active-darkBlue fg-white">
+					    <span class="icon mif-info"></span>
+					    <span class="title">Popups</span>
+					    <span class="badge">10</span>
+					</a>
 			    </div>
 			</div>
 		</div>

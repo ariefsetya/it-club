@@ -52,8 +52,19 @@ class HomeController extends Controller {
 		// 		die();
 		// 	}
 		// }
+//		Session::put("a-".getenv('REMOTE_ADDR')."-3",'x');
 
-
+		foreach (\App\Popups::all() as $key) {
+			$isi = array();
+			if($key->tipe_valid=="by_datetime" or $key->tipe_valid=="by_date"){
+				$cek = $this->check_in_range( date_format(date_create($key->date_valid_start." ".$key->time_valid_start),"Y-m-d H:i:s"), date_format(date_create($key->date_valid_end." ".$key->time_valid_end),"Y-m-d H:i:s"), date("Y-m-d H:i:s") );
+				if($cek){
+					if(!Session::has("a-".getenv('REMOTE_ADDR')."-".$key->id)){
+						Session::put("a-".getenv('REMOTE_ADDR')."-".$key->id,'x');
+					}
+				}
+			} 
+		}
 	}
 
 	/**
@@ -62,6 +73,19 @@ class HomeController extends Controller {
 	 * @return Response
 	 */
 
+	function check_in_range($start_date, $end_date, $date_from_user)
+	{
+	  // Convert to timestamp
+	  $start_ts = strtotime($start_date);
+	  $end_ts = strtotime($end_date);
+	  $user_ts = strtotime($date_from_user);
+
+
+
+
+	  // Check that user date is between start & end
+	  return (($user_ts >= $start_ts) && ($user_ts <= $end_ts));
+	}
 	public function updatesocial()
 	{
 		$upt = User::find(Auth::user()->id);

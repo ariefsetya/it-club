@@ -167,6 +167,13 @@ Route::group(['prefix' => 'admin'], function()
 		Route::post('add','ActivitiesController@store');
 		Route::get('delete/{id}','ActivitiesController@destroy');
 	});
+	Route::group(['prefix' => 'popups'], function()
+	{
+	    Route::get('/','PopupsController@index');
+		Route::get('add','PopupsController@create');
+		Route::post('add','PopupsController@store');
+		Route::get('delete/{id}','PopupsController@destroy');
+	});
 });
 
 Route::get('sendmail/{nama}',function ($nama)

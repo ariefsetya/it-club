@@ -59,7 +59,33 @@ $title = App\Website::where(array('jenis'=>'site','kunci'=>'title'))->first()['i
                 }
             });
         </script>    
-
+        <script type="text/javascript">
+            function showDialog(id){
+                    var dialog = $("#"+id).data('dialog');
+                    if (!dialog.element.data('opened')) {
+                        dialog.open();
+                    } else {
+                        dialog.close();
+                    }
+                }
+        </script>
+        @foreach(\App\Popups::all() as $key)
+            @if(\Session::get("a-".getenv('REMOTE_ADDR')."-".$key->id)=='x')
+            <div data-role="dialog" id="dialog" class="padding20 dialog" data-overlay="true" data-close-button="true" data-overlay-color="op-dark" style="display: none;">
+                <h4 id="title">{{$key->judul}}</h4>
+                <hr>
+                <p><img style="max-width: 1000px;max-height: 500px;" src="{{url('images/popup_image/'.$key->image)}}"></p>
+                <span class="dialog-close-button"></span>
+            </div>
+            <script type="text/javascript">
+                setTimeout(function(){
+                    showDialog('dialog');
+                    $("#dialog").fadeIn();
+                },5000);
+            </script>
+            <?php \Session::put("a-".getenv('REMOTE_ADDR')."-".$key->id,'y'); ?>
+            @endif
+        @endforeach
     	@yield('footer')
 
 	</body>
