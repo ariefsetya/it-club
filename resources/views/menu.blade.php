@@ -8,7 +8,7 @@
             <li>
                 <a href="#" class="dropdown-toggle">Tutorials</a>
                 <div class="m-menu-container" data-role="dropdown">
-                    <ul class="inline-list" style="font-size: 12pt;">
+                    <ul class="inline-list" style="font-size: 12pt;padding-top: 8pt;line-height: 1.55rem;">
                     @foreach(App\Category::where('deleted_at',NULL)->get() as $data)
                         <li style="font-size: {{(sizeof(\App\Posts::where('idcategory',$data->id)->get())/12)*100<100?100:(sizeof(\App\Posts::where('idcategory',$data->id)->get())/12)*100}}%"><a href="{{ url('search/'.$data->id) }}">{{ $data->nama }}</a></li>
                     @endforeach
