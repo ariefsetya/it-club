@@ -10,7 +10,7 @@
                 <div class="m-menu-container" data-role="dropdown">
                     <ul class="inline-list">
                     @foreach(App\Category::where('deleted_at',NULL)->get() as $data)
-                        <li><a style="font-size: {{sizeof(App\Posts::where('id_category',$data->id)->get())}}pt" href="{{ url('search/'.$data->id) }}">{{ $data->nama }}</a></li>
+                        <li><a style="font-size: {{sizeof(\App\Posts::where('id_category',$data->id)->get())}}pt" href="{{ url('search/'.$data->id) }}">{{ $data->nama }}</a></li>
                     @endforeach
                     </ul>
                 </div>
