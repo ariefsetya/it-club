@@ -3,7 +3,7 @@
 @section('header')
     <title>{{$act[0]->judul}} | IT Club SMKN 10 Jakarta</title>
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="{{$act[0]->judul}} | IT Club SMKN 10 Jakarta" />
+    <meta property="og:title" content="{{$act[0]->judul}}" />
 @endsection
 
 @section('content')
