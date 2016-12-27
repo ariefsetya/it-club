@@ -203,15 +203,28 @@ Route::get('session',function ()
 
 Route::get('/images/{addpath}/{filename}', function ($addpath,$filename)
 {
-	$path = storage_path() . '/'.$addpath.'/' . $filename;
+    $path = storage_path() . '/'.$addpath.'/' . $filename;
 
     $file = File::get($path);
     $type = File::mimeType($path);
 
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
+    $ext = explode(".",$filename);  //fungsi ini
+    $ext = $ext[sizeof($ext)-1];    //buat ngambil ekstensi
 
-    return $response;
+    if(in_array($ext,array('png','gif','jpg','jpeg'))){ //ngecek ekstensinya termasuk gambar atau ngga
+
+        if(@is_array(getimagesize($path))){ //ngecek property gambar, karna ekstensi aja bisa diakali
+        
+            $response = Response::make($file, 200);
+            $response->header("Content-Type", $type);
+        
+            return $response;
+        }else{
+            return "Iseng bae wkwk"; //kalau format gambar tapi isinya teks keluarannya ini
+        }
+    }else{
+        return "Hayoo lagi ngapain wkwk"; //kalau selain format gambar keluarannya ini
+    }
 });
 
 Route::get('notfound',function()
