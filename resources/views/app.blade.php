@@ -1,4 +1,5 @@
 <?php
+header("X-Frame-Options: ALLOW-FROM https://facebook.com/");
 $title = App\Website::where(array('jenis'=>'site','kunci'=>'title'))->first()['isi'];
 ?>
 
