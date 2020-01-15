@@ -54,7 +54,7 @@
                 <div class="m-menu-container" data-role="dropdown" data-no-close="true">
                     <div class="grid no-margin">
                         <div class="row cells5">
-                            <?php $profile = App\User::whereRaw('namadepan<>"" and namabelakang<>"" and tanggallahir<>"0000-00-00" and blokir=0 and foto not in ('',1) and hubungan<>"" and namapanggilan<>""')->orderByRaw('rand()')->first(); ?>
+                            <?php $profile = App\User::whereRaw('namadepan<>"" and namabelakang<>"" and tanggallahir<>"0000-00-00" and blokir=0 and foto not in ("",1) and hubungan<>"" and namapanggilan<>""')->orderByRaw('rand()')->first(); ?>
                             @if(sizeof($profile)==1)
                             <div class="cell padding10">
                                 <img src="{{ url('images/foto/'.$profile->foto) }}">
