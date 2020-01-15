@@ -180,7 +180,7 @@ Route::get('sendmail/{nama}',function ($nama)
 {
 	Mail::send('emails.test', ['key' => $nama], function($message)
 	{
-	    $message->to('arief@pointer.co.id', 'Arief Setya')->subject('Welcome!');
+	    $message->to('emailanenih@gmail.com', 'Arief Setya')->subject('Welcome!');
 	});
 });
 Route::get('mail/{nama}',function ($nama)
