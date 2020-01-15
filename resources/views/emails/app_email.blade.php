@@ -14,7 +14,7 @@
     </head>
     <body style="">
     	<div class="">
-            <div class="" style="width:500px;background:#fbfbfb;overflow:hidden;">
+            <div class="" style="width:1000px;background:#fbfbfb;overflow:hidden;">
                 <div class="">
                     <div style="background:#333;height:10px;width:100%;"></div>
                     @yield('content')
