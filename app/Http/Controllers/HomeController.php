@@ -222,7 +222,7 @@ class HomeController extends Controller {
 			'slide'=>array('up','down','left','right'),
 			'size'=>array('tile','tile-wide','tile-large','tile-big','tile-square','tile-big-x'),
 			'color'=>array('blue','green','red','black'),
-			'friends'=>User::whereRaw('namadepan<>"" and namabelakang<>"" and tanggallahir<>"0000-00-00" and blokir=0 and foto<>1')->orderByRaw('id')->paginate(25)
+			'friends'=>User::whereRaw('namadepan<>"" and namabelakang<>"" and tanggallahir<>"0000-00-00" and blokir=0 and (foto<>1 or foto<>"") and hubungan<>"" and namapanggilan<>""')->orderByRaw('id')->paginate(25)
 			);
 
 		return view('mine.friends')->with($data);

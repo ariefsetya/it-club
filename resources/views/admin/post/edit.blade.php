@@ -63,8 +63,8 @@
 				        		<td>
 				        			<div class="input-control select full-size">
 									    <select name="idcategory" required>
-									    @foreach($category as $data)
-									    	<option value="{{ $data->id }}">{{ $data->nama }}</option>
+									    @foreach($category as $row)
+									    	<option {{ $row->id==$data->idcategory?'selected':'' }} value="{{ $row->id }}">{{ $row->nama }}</option>
 									    @endforeach
 									    </select>
 									</div>
